@@ -1,0 +1,10 @@
+#Updated QA URL
+#Thu Jun 20 21:12:13 IST 2024
+envl=uat
+urlQa=https\://www.facebook.com.qa
+password=password
+url=https\://www.facebook.com/
+file=C\:\\Users\\balap\\eclipse-workspace\\browser\\Cucumber\\src\\test\\resources\\Utilities.property
+key=value
+env=qa
+username=malar
