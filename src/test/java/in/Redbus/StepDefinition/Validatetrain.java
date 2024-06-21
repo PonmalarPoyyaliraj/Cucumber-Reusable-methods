@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import in.Cucumber.BaseClass.BaseClass;
+import in.Cucumber.ObjectRepository.FacebookPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,7 +23,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Validatetrain extends BaseClass {
 	//public static WebDriver driver;
 	public static BaseClass base = new BaseClass();
-
+	public static FacebookPage fb=new FacebookPage();
 	@Given("user launch the browser and application {string}")
 	public void user_launch_the_browser_and_application(String url) {
 //		WebDriverManager.edgedriver().setup();
@@ -42,9 +43,9 @@ public class Validatetrain extends BaseClass {
 	public void user_enters_the_value_in_from_place(io.cucumber.datatable.DataTable dataTable) {
 		List<String> datas = dataTable.asList();
 	    String fromLoc = datas.get(0);
-		WebElement user_from = driver.findElement(By.xpath("//input[@placeholder='From']"));
-		base.button(user_from);
-		base.inputKeys(user_from,fromLoc);
+		//WebElement user_from = driver.findElement(By.xpath("//input[@placeholder='From']"));
+		base.button(fb.getUser_from());
+		base.inputKeys(fb.getUser_from(),fromLoc);
 		 //WebElement user_loc = base.waits().until(ExpectedConditions.elementToBeClickable(By.id("(//div[text()='\"+fromLoc+\"' and @class='stn_city_name'])[last()]")));
         WebElement user_loc = driver.findElement(By.xpath("(//div[text()='"+fromLoc+"' and @class='stn_city_name'])[last()]"));
         base.button(user_loc);
@@ -54,9 +55,9 @@ public class Validatetrain extends BaseClass {
 	public void user_enters_the_value_in_to_place(io.cucumber.datatable.DataTable dataTable) {
 		Map<String, String> datas = dataTable.asMap(String.class, String.class);
 		 String toLoc = datas.get("Location1");
-	     WebElement user_to = driver.findElement(By.xpath("//input[@placeholder='To']"));
-	     base.button(user_to);
-	     base.inputKeys(user_to,toLoc);
+	    // WebElement user_to = driver.findElement(By.xpath("//input[@placeholder='To']"));
+	     base.button(fb.getUser_to());
+	     base.inputKeys(fb.getUser_to(),toLoc);
 		 WebElement user_loco = driver.findElement(By.xpath("(//div[text()='"+toLoc+"' and @class='stn_city_name'])[last()]"));
 		 base.button(user_loco);  
 	}
@@ -76,15 +77,15 @@ public class Validatetrain extends BaseClass {
 
 	@When("user clicks on free cancellation")
 	public void user_clicks_on_free_cancellation() {
-		WebElement user_click = driver.findElement(By.xpath("//input[@type='checkbox']"));
-		 base.button(user_click);
+		//WebElement user_click = driver.findElement(By.xpath("//input[@type='checkbox']"));
+		 base.button(fb.getUser_click());
 	   
 	}
 
 	@When("user clicks on search train")
 	public void user_clicks_on_search_train() {
-		WebElement user_search = driver.findElement(By.xpath("//button[text()='Search Trains']"));
-		base.button(user_search);
+		//WebElement user_search = driver.findElement(By.xpath("//button[text()='Search Trains']"));
+		base.button(fb.getUser_search());
 	   
 	}
 
